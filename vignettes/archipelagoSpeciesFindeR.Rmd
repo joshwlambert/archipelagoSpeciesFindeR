@@ -1,0 +1,35 @@
+---
+title: "Package tutorial"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Package tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(archipelagoSpeciesFindeR)
+```
+
+Requirements for calculating species presence and endemicity:
+
+1) Read a csv with the archipelago coordinates
+
+Read dummy archipelago data from Nature paper \
+E.g. archipelagos <- read.csv("archipelago_locations.csv", fileEncoding = "UTF-8-BOM")
+
+2) Read shapefile using rgdal::readOGR()
+
+Read dummy shapefile data from IUCN \
+E.g. species_ranges <- rgdal::readOGR(dsn = "species_name", layer = "data_0")
+
+# Calculating species presence and endemicity on archipelagos
+
+find_island_presence()
